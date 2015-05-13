@@ -59,9 +59,9 @@ static void noise_output(void)
 }
 
 
-#define MULT 3
-#define DIV 2
-#define CALIB 68813
+#define MULT 12
+#define DIV 29
+#define CALIB 65536
 
 
 static void calc_set_out_freq(uint32_t fphz)
