@@ -1,0 +1,6 @@
+This is the built optiboot
+from github.com/Optiboot/optiboot
+commit e754f243e7cdc58d8a1a7c4c25c6d39782bd9187
+plus the provided Makefile.custom for the
+target and my script/command used
+for initial settings of the ATmega328.
