@@ -33,7 +33,7 @@
 #define GPF_CLROUT _BV(2)
 
 static uint24_t time_base = 0;
-static uint16_t base_inc;
+static uint16_t base_inc = 0;
 static uint16_t next_ocr1a;
 
 #define CAPTBUF_CNT 4
@@ -177,13 +177,7 @@ void freqio_init(void)
 	TIFR1 = _BV(OCF1A);
 	TIMSK1 = _BV(OCIE1A);
 	ACSR = _BV(ACD);
-#else
-	TIFR1 = _BV(ICF1) | _BV(OCF1A);
-	TIMSK1 = _BV(ICIE1) | _BV(OCIE1A);
-	ACSR = _BV(ACIC);
-#endif
 
-#ifdef INPUT_DIGITAL
 	/* Set Timer0 to generate an interrupt on every T0 rising edge. */
 	/* We could use PCINT, but that'd give unnecessary falling edges, and... */
 	/* We already have it attached to T0. */
@@ -192,5 +186,10 @@ void freqio_init(void)
 	TCCR0B = _BV(CS02) | _BV(CS01) | _BV(CS00); /* T0 rising edge. */
 	TIFR0 = _BV(OCF0A);
 	TIMSK0 = _BV(OCIE0A);
+#else
+	TIFR1 = _BV(ICF1) | _BV(OCF1A);
+	TIMSK1 = _BV(ICIE1) | _BV(OCIE1A);
+	ACSR = _BV(ACIC);
 #endif
+
 }
