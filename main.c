@@ -149,6 +149,7 @@ void setup(void)
 
 	freqio_init();
 	uart_init();
+        freqio_out_inf();
 	sei();
 
 }
