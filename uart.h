@@ -39,7 +39,7 @@ void uart_wait_txdone(void);
 #ifdef UART_POLLED_TX
 #define UARTTX_BUFLEN 0
 #else
-#define UARTTX_BUFLEN 128
+#define UARTTX_BUFLEN 240
 #endif
 
 #endif

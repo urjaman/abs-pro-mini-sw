@@ -129,7 +129,7 @@ set_zero: {
 			}
 			tick_time_base = r;
 			tick_count = -1;
-			DBGSTR("I&O: 0");
+			DBGSTR("I&O: 0Hz"); 
 			noise_output();
 			CRLF();
 		}
